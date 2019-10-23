@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+
+    Name: <input type="text" ng-model="name">
+    Second Name:<input type="text" ng-model="name">
+    <p>{{(name) + (second_name)}}</p> 
+
+    <hr>
+
+    First Number:<input type="number" ng-model="first_number">
+    Second Number:<input type="number" ng-model="second_number">
+    <p>Result:<p>{{ (first_number) + (second_number) }}</p> </p>
+    <!--peradventure you didn't put a "number"= type, add -0 it will work
+    First Number:<input type="text" ng-model="first_number">
+    Second Number:<input type="text" ng-model="second_number">
+    <p>Result:<p>{{ (first_number) + (second_number - 0) }}</p> </p>-->
+
+    <hr>
+    First Number:<input type="text" ng-model="fname">
+    Second Number:<input type="text" ng-model="sname">
+    Full Name: <p>{{fullName}}</p>
+    <button ng-click="addName()">Add Names</button>
+</body>
+<script>
+var app = angular.module('myApp',[])
+
+app.controller('myCtrl', function($scope) {
+  $scope.addName = function(){
+    $scope.fullName = $scope.fname +'  '+ $scope.sname
+  }
+});
+
+
+</script>
+</html>
